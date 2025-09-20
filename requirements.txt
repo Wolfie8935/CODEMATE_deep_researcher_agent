@@ -1,5 +1,3 @@
-langchain
-langchain-community
 faiss-cpu
 sentence-transformers
 torch
@@ -13,3 +11,5 @@ reportlab
 markdown
 streamlit
 tqdm
+pyyaml
+argparse
