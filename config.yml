@@ -1,0 +1,154 @@
+# Deep Researcher Agent Configuration
+
+# Document Ingestion Settings
+ingestion:
+  data_dir: "data"
+  chunk_size: 1000
+  chunk_overlap: 200
+  supported_formats: [".pdf", ".docx", ".txt", ".md", ".html"]
+  max_file_size_mb: 50
+  enable_metadata_extraction: true
+  preserve_formatting: true
+
+# Embedding Model Configuration
+embeddings:
+  model_name: "sentence-transformers/all-MiniLM-L6-v2"
+  # Alternative models: "sentence-transformers/all-mpnet-base-v2", "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  batch_size: 32
+  max_seq_length: 512
+  normalize_embeddings: true
+  cache_embeddings: true
+  embedding_cache_dir: "cache/embeddings"
+
+# Vector Store Configuration
+vector_store:
+  index_type: "faiss"  # Options: "faiss", "chroma", "pinecone"
+  faiss_index_type: "IndexFlatL2"  # Options: "IndexFlatL2", "IndexIVFFlat", "IndexHNSWFlat"
+  persist_index: true
+  index_path: "cache/vector_index"
+  search_top_k: 10
+  similarity_threshold: 0.7
+  enable_metadata_filtering: true
+
+# Reasoning and Query Processing
+reasoning:
+  # Query decomposition
+  decomposition_strategy: "intelligent"  # Options: "simple", "intelligent", "llm_based"
+  max_subtasks: 5
+  subtask_overlap_threshold: 0.3
+  
+  # Evidence retrieval
+  top_k: 5
+  rerank_results: true
+  evidence_diversity_threshold: 0.8
+  
+  # Summarization
+  summarizer_model: "facebook/bart-large-cnn"
+  summarizer_max_input_chars: 3000
+  summarizer_min_length: 30
+  summarizer_max_length: 200
+  enable_abstractive_summarization: true
+  fallback_to_extractive: true
+  
+  # LLM Integration (optional)
+  enable_llm_reasoning: false
+  llm_model: "microsoft/DialoGPT-medium"
+  llm_max_tokens: 500
+  llm_temperature: 0.7
+
+# Synthesis Configuration
+synthesizer:
+  max_chars: 2000
+  max_evidence: 5
+  enable_citation_tracking: true
+  citation_format: "apa"  # Options: "apa", "mla", "chicago", "simple"
+  confidence_scoring: true
+  source_verification: true
+  enable_contradiction_detection: true
+
+# Export Configuration
+export:
+  output_dir: "exports"
+  formats: ["markdown", "pdf", "json", "html"]
+  include_metadata: true
+  include_citations: true
+  include_reasoning_trace: true
+  template_dir: "templates"
+  
+  # PDF Export Settings
+  pdf:
+    page_size: "A4"
+    font_size: 11
+    margin: 1.0
+    include_toc: true
+    
+  # Markdown Export Settings
+  markdown:
+    include_toc: true
+    code_highlighting: true
+    math_support: true
+
+# Web UI Configuration
+web_ui:
+  host: "localhost"
+  port: 8501
+  title: "Deep Researcher Agent"
+  theme: "light"  # Options: "light", "dark"
+  enable_file_upload: true
+  max_upload_size_mb: 100
+  enable_real_time_search: true
+  show_confidence_scores: true
+  enable_follow_up_questions: true
+
+# AI Assistant Configuration
+ai_assistant:
+  enable_explanations: true
+  explanation_depth: "detailed"  # Options: "brief", "detailed", "comprehensive"
+  show_reasoning_steps: true
+  enable_insights: true
+  suggest_follow_up_questions: true
+  max_insights: 3
+
+# Performance and Caching
+performance:
+  enable_caching: true
+  cache_dir: "cache"
+  max_cache_size_mb: 1000
+  cache_ttl_hours: 24
+  
+  # Batch processing
+  batch_size: 10
+  max_concurrent_requests: 5
+  
+  # Memory management
+  max_memory_usage_mb: 2048
+  enable_memory_monitoring: true
+
+# Logging Configuration
+logging:
+  level: "INFO"  # Options: "DEBUG", "INFO", "WARNING", "ERROR"
+  log_file: "logs/researcher.log"
+  max_log_size_mb: 10
+  backup_count: 5
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Security and Privacy
+security:
+  enable_input_sanitization: true
+  max_query_length: 1000
+  block_malicious_patterns: true
+  enable_rate_limiting: true
+  max_requests_per_minute: 60
+
+# Advanced Features
+advanced:
+  enable_semantic_search: true
+  enable_hybrid_search: true  # Combines semantic and keyword search
+  enable_query_expansion: true
+  enable_result_reranking: true
+  enable_multi_modal_support: false  # For future image/document analysis
+  
+  # Research workflow
+  enable_research_workflow: true
+  auto_save_progress: true
+  enable_collaboration: false  # For future multi-user support

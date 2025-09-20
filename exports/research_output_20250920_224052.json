@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "query": "what do you mean by bayesian",
+    "export_date": "2025-09-20T22:40:52.658707",
+    "total_subtasks": 1,
+    "total_evidence": 5,
+    "average_confidence": 0.6599999999999999
+  },
+  "final_answer": "🔍 DEEP RESEARCH RESULTS\n============================================================\nQuery: what do you mean by bayesian\nAnalysis Date: 2025-09-20 22:40:52\n\n📋 EXECUTIVE SUMMARY\n------------------------------\nThe research reveals several findings with moderate confidence:\nDETAILED ANALYSIS\n==================================================\n\n1. What is the relationship between what in the context of the query?\n----------------------------------------\nConfidence: 🟡 0.66\n\nAnswer:\nSGLD uses min i-batches to compute a noisy gradient of the log -likelihood, adds\nGaussian noise, and slowly decays the step size. SGLD has been applied, for\nexample, to Bayesian deep learning.\n\nSources (5):\n  [1] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [2] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [3] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [4] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [5] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n\nCONFIDENCE ASSESSMENT\n==================================================\nOverall Confidence: Moderate (0.66)\nAssessment: Good evidence with some limitations\n\nEvidence Quality:\n  • Total evidence pieces: 5\n  • Source diversity: 1 unique sources\n  • Subtasks completed: 1\n\nSOURCE VERIFICATION\n==================================================\nSources analyzed: 1\n\n============================================================\nResearch completed by Deep Researcher Agent\nAll sources are from local document collection",
+  "results": [
+    {
+      "subtask": "What is the relationship between what in the context of the query?",
+      "answer": "SGLD uses min i-batches to compute a noisy gradient of the log -likelihood, adds Gaussian noise, and slowly decays the step size. SGLD has been applied, for example, to Bayesian deep learning.",
+      "evidence": [
+        {
+          "id": "bayesian presentation iisc.pdf_chunk10",
+          "text": "ion that the posterior is the Gaussian Distribution \n𝑝(θ∣𝐷)=𝒩(θ∣∣ν,σ2𝐼) for some mean 𝜈 and variance 𝜎2. Logistic regression sets the likelihood \nas p(t=1∣x,θ)=σ(θ⊤u(x)) for a feature of vectors u(x). For this model , what shall be the \nensemble predictive distribution  \n𝑝(𝑡∣𝑥,𝐷)=𝐸θ∼ℕ(θ∣∣∣ν,σ𝟚𝐼)[σ(θ⊤𝑢(𝑥))] \n𝑝(𝑡∣𝑥,𝐷)≈σ\n( ν⊤𝑢(𝑥)\n√1+πσ2\n8)  \nA larger variance σ2 of the posterior decreases the confidence of the prediction by reducing t he \nabsolute value of the logit (i.e. of the argument of the sigmoid function). In simple words  – The \nprobability that the label t = 1, given input x and model parameters θ, is computed using a sigmoid \nfunction applied to the dot product of θ and the feature vector u(x). When we perform Bayesian \nPrediction, we average the probability over all the likely values of θ drawn from a Gaussian posterior.",
+          "meta": {
+            "source": "bayesian presentation iisc.pdf",
+            "chunk_index": 10,
+            "total_chunks": 60,
+            "file_metadata": {
+              "file_size": 2361334,
+              "file_size_formatted": "2.3MB",
+              "modified_time": 1758388043.34277,
+              "file_hash": "331169b24fead2836cd858983c3a66ce",
+              "file_extension": ".pdf",
+              "title": "",
+              "author": "Aman Goel",
+              "subject": "",
+              "creator": "Microsoft® Word 2021",
+              "producer": "Microsoft® Word 2021",
+              "creation_date": "D:20250701014308+05'30'",
+              "modification_date": "D:20250701014308+05'30'",
+              "page_count": 26
+            },
+            "keywords": [
+              "posterior",
+              "that",
+              "gaussian",
+              "distribution",
+              "variance",
+              "feature",
+              "model",
+              "prediction",
+              "sigmoid",
+              "function"
+            ],
+            "chunk_length": 840,
+            "file_path": "data\\bayesian presentation iisc.pdf"
+          },
+          "vector": 

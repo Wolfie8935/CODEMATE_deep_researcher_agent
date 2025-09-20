@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "query": "what is cyclone intensity and how is it measured",
+    "export_date": "2025-09-20T22:29:39.681799",
+    "total_subtasks": 2,
+    "total_evidence": 10,
+    "average_confidence": 0.7128
+  },
+  "final_answer": "🔍 DEEP RESEARCH RESULTS\n============================================================\nQuery: what is cyclone intensity and how is it measured\nAnalysis Date: 2025-09-20 22:29:39\n\n📋 EXECUTIVE SUMMARY\n------------------------------\nBased on the analysis of available sources, the research provides strong evidence for the following findings:\nDETAILED ANALYSIS\n==================================================\n\n1. what is cyclone intensity\n----------------------------------------\nConfidence: 🟢 0.77\n\nAnswer:\nCyclone intensity prediction is still a challenging task in meteorological\nstudies. Proposed an ML-based approach to predict cyclone intensity using the\nERA5 data set. The framework ac hieves higher accuracy compared to existing\nmodels.\n\nSources (5):\n  [1] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.48\n  [2] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.42\n  [3] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.42\n  [4] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.42\n  [5] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.42\n\n2. how is it measured\n----------------------------------------\nConfidence: 🟡 0.65\n\nAnswer:\nLasso Regression achieves automatic feature selection by setting irrelevant\nvariable coefficients to zero. Decision Tree Regressor is capable of capturing\nnon-linear relationships and interactions between features. Ice Chunk is a\nlibrary designed for efficient chunk -based data streaming from cloud storage.\n\nSources (5):\n  [1] GSoC_Proposal_Zarr3_Aman_Goel.pdf (n.d.). Retrieved from local database. Relevance score: 0.18\n  [2] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.12\n  [3] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.12\n  [4] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.12\n  [5] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.12\n\nCONFIDENCE ASSESSMENT\n==================================================\nOverall Confidence: Moderate (0.71)\nAssessment: Good evidence with some limitations\n\nEvidence Quality:\n  • Total evidence pieces: 10\n  • Source diversity: 2 unique sources\n  • Subtasks completed: 2\n\nSOURCE VERIFICATION\n==================================================\nSources analyzed: 2\n\n============================================================\nResearch completed by Deep Researcher Agent\nAll sources are from local document collection",
+  "results": [
+    {
+      "subtask": "what is cyclone intensity",
+      "answer": "Cyclone intensity prediction is still a challenging task in meteorological studies. Proposed an ML-based approach to predict cyclone intensity using the ERA5 data set. The framework ac hieves higher accuracy compared to existing models.",
+      "evidence": [
+        {
+          "id": "Cyclone Intensity Prediction using ERA5.pdf_chunk13",
+          "text": "tigated in the present work, with ML methods may \nprovide a very effective avenue towards enhanced cyc lone \nintensity prediction . III. PROPOSED METHODOLOGY  \nCyclones are prevalent in coastal areas. In the Indian \nsubcontinent, primarily West Bengal, Odisha, Andhra Pradesh, and Tamil Nadu are hit by cyclones. There is no \nmachine or model that can tell us what is going to happen in \nthe next few days . The research work proposes  a machine learning model that \nassists in predicting storm  intensity  by considering 22 \nindependent features and providing the output as surface \npressure which help in predicting the intensity of cyclone . The predictive pipeline consists of the following models : \nA. Linear Regression  \n             Model provides a baseline to compare against. It \nworks well if there is a linear correlation between cyclone \nintensity and meteorological parameters (e.g., wind speed, \nmean sea level).",
+          "meta": {
+            "source": "Cyclone Intensity Prediction using ERA5.pdf",
+            "chunk_index": 13,
+            "total_chunks": 42,
+            "file_metadata": {
+              "file_size": 395140,
+              "file_size_formatted": "385.9KB",
+              "modified_time": 1745424712.8266406,
+              "file_hash": "14d277801547c80a2103e2b5a3d7ccb6",
+              "file_extension": ".pdf",
+              "title": "Paper Title (use style: paper title)",
+              "author": "IEEE",
+              "subject": "",
+              "creator": "Microsoft® Word 2021",
+              "producer": "Microsoft® Word 2021",
+              "creation_date": "D:20250423214152+05'30'",
+              "modification_date": "D:20250423214152+05'30'",
+              "page_count": 6
+            },
+            "keywords": [
+              "intensity",
+              "model",
+              "work",
+              "cyclones",
+              "there",
+              "machine",
+              "that",
+              "predicting",
+              "cyclone",
+              "linear"
+            ],
+            "chunk_length": 928,
+            "file_path": "data\\Cyclone Intensity Prediction using ERA5.pdf"
+          },
+          "vector": 

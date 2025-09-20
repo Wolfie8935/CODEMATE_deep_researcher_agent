@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "query": "what is sgld\n",
+    "export_date": "2025-09-20T22:42:33.998165",
+    "total_subtasks": 1,
+    "total_evidence": 5,
+    "average_confidence": 0.72
+  },
+  "final_answer": "🔍 DEEP RESEARCH RESULTS\n============================================================\nQuery: what is sgld\n\nAnalysis Date: 2025-09-20 22:42:33\n\n📋 EXECUTIVE SUMMARY\n------------------------------\nBased on the analysis of available sources, the research provides strong evidence for the following findings:\nDETAILED ANALYSIS\n==================================================\n\n1. what is sgld\n----------------------------------------\nConfidence: 🟢 0.72\n\nAnswer:\nStochastic Gradient Langevin Dynamics (SGLD) is a modern MCMC method that scales\nBayesian sampling to large datasets and models. SGLD uses min i-batches to\ncompute a noisy gradient of the log -likelihood, adds Gaussian noise, and slowly\ndecays the step size.\n\nSources (5):\n  [1] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.30\n  [2] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.30\n  [3] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.30\n  [4] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.30\n  [5] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.30\n\nCONFIDENCE ASSESSMENT\n==================================================\nOverall Confidence: Moderate (0.72)\nAssessment: Good evidence with some limitations\n\nEvidence Quality:\n  • Total evidence pieces: 5\n  • Source diversity: 2 unique sources\n  • Subtasks completed: 1\n\nSOURCE VERIFICATION\n==================================================\nSources analyzed: 2\n\n============================================================\nResearch completed by Deep Researcher Agent\nAll sources are from local document collection",
+  "results": [
+    {
+      "subtask": "what is sgld",
+      "answer": "Stochastic Gradient Langevin Dynamics (SGLD) is a modern MCMC method that scales Bayesian sampling to large datasets and models. SGLD uses min i-batches to compute a noisy gradient of the log -likelihood, adds Gaussian noise, and slowly decays the step size.",
+      "evidence": [
+        {
+          "id": "bayesian presentation iisc.pdf_chunk37",
+          "text": "imension with local minima  \n\nStochastic Gradient Markov Chain Monte Carlo  \nMCMC -MH requires full access of the dataset at each iteration to compute posterior which is very slow \nfor large datasets. Stochastic Gradient MCMC uses  \n- Mini Batches of data instead of full dataset  \n- Combining ideas from stochastic gradient descent with MCMC  \nStochastic Gradient Langevin Dynamics (SGLD)  \nStochastic Gradient Langevin Dynamics (SGLD) is a modern MCMC method that scales Bayesian \nsampling to large datasets and models (often called SGMCMC for “stochastic gradient MCMC”). SGLD \ncombines ideas from optimization and sampling: it performs gradient u pdates on the log -posterior \n(like stochastic gradient descent) but injects carefully scaled noise so that in the limit it samples from \nthe posterior. In effect, one treats the optimization trajectory itself as a sampling process.",
+          "meta": {
+            "source": "bayesian presentation iisc.pdf",
+            "chunk_index": 37,
+            "total_chunks": 60,
+            "file_metadata": {
+              "file_size": 2361334,
+              "file_size_formatted": "2.3MB",
+              "modified_time": 1758388043.34277,
+              "file_hash": "331169b24fead2836cd858983c3a66ce",
+              "file_extension": ".pdf",
+              "title": "",
+              "author": "Aman Goel",
+              "subject": "",
+              "creator": "Microsoft® Word 2021",
+              "producer": "Microsoft® Word 2021",
+              "creation_date": "D:20250701014308+05'30'",
+              "modification_date": "D:20250701014308+05'30'",
+              "page_count": 26
+            },
+            "keywords": [
+              "gradient",
+              "stochastic",
+              "mcmc",
+              "posterior",
+              "from",
+              "sgld",
+              "sampling",
+              "with",
+              "full",
+              "dataset"
+            ],
+            "chunk_length": 883,
+            "file_path": "data\\bayesian presentation iisc.pdf"
+          },
+          "vector": 

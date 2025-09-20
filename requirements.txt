@@ -13,3 +13,8 @@ streamlit
 tqdm
 pyyaml
 argparse
+beautifulsoup4
+lxml
+html5lib
+python-magic
+chardet

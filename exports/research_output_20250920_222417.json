@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "query": "what are the author queries\n",
+    "export_date": "2025-09-20T22:24:17.649910",
+    "total_subtasks": 1,
+    "total_evidence": 5,
+    "average_confidence": 0.6672
+  },
+  "final_answer": "🔍 DEEP RESEARCH RESULTS\n============================================================\nQuery: what are the author queries\n\nAnalysis Date: 2025-09-20 22:24:17\n\n📋 EXECUTIVE SUMMARY\n------------------------------\nThe research reveals several findings with moderate confidence:\nDETAILED ANALYSIS\n==================================================\n\n1. What is the relationship between what in the context of the query?\n----------------------------------------\nConfidence: 🟡 0.67\n\nAnswer:\nLasso Regression achieves automatic feature selection by setting irrelevant\nvariable coefficients to zero. It is useful in high-dimensional data such as\nERA5, where most features have minimal importance. Model provides a baseline to\ncompare against.\n\nSources (5):\n  [1] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [2] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.18\n  [3] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.18\n  [4] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.18\n  [5] Cyclone Intensity Prediction using ERA5.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n\nCONFIDENCE ASSESSMENT\n==================================================\nOverall Confidence: Moderate (0.67)\nAssessment: Good evidence with some limitations\n\nEvidence Quality:\n  • Total evidence pieces: 5\n  • Source diversity: 1 unique sources\n  • Subtasks completed: 1\n\nSOURCE VERIFICATION\n==================================================\nSources analyzed: 1\n\n============================================================\nResearch completed by Deep Researcher Agent\nAll sources are from local document collection",
+  "results": [
+    {
+      "subtask": "What is the relationship between what in the context of the query?",
+      "answer": "Lasso Regression achieves automatic feature selection by setting irrelevant variable coefficients to zero. It is useful in high-dimensional data such as ERA5, where most features have minimal importance. Model provides a baseline to compare against.",
+      "evidence": [
+        {
+          "id": "Cyclone Intensity Prediction using ERA5.pdf_chunk14",
+          "text": "Model provides a baseline to compare against. It \nworks well if there is a linear correlation between cyclone \nintensity and meteorological parameters (e.g., wind speed, \nmean sea level). There are some drawbacks: it is unable to \ncapture complex and non -linear  interactions since cyclone \nintensity is influenced by them , high multicollinearity \nbetween meteorological parameters impacts model stability; \nand it is outlier -sensitive. B. Lasso Regression  \n       Model achieves automatic feature selection by setting \nirrelevant variable coefficients to zero, and it is useful in \nhigh-dimensional data such as ERA5, where most features \ncan have minimal importance. It is, however, subject to some \nlimitations: it deletes significant variables, resulting in an \nunderfitted model or incorrect prediction, and it does not \nperform well with highly correlated features . C.",
+          "meta": {
+            "source": "Cyclone Intensity Prediction using ERA5.pdf",
+            "chunk_index": 14,
+            "total_chunks": 42,
+            "file_metadata": {
+              "file_size": 395140,
+              "file_size_formatted": "385.9KB",
+              "modified_time": 1745424712.8266406,
+              "file_hash": "14d277801547c80a2103e2b5a3d7ccb6",
+              "file_extension": ".pdf",
+              "title": "Paper Title (use style: paper title)",
+              "author": "IEEE",
+              "subject": "",
+              "creator": "Microsoft® Word 2021",
+              "producer": "Microsoft® Word 2021",
+              "creation_date": "D:20250423214152+05'30'",
+              "modification_date": "D:20250423214152+05'30'",
+              "page_count": 6
+            },
+            "keywords": [
+              "model",
+              "well",
+              "there",
+              "linear",
+              "between",
+              "cyclone",
+              "intensity",
+              "meteorological",
+              "parameters",
+              "some"
+            ],
+            "chunk_length": 879,
+            "file_path": "data\\Cyclone Intensity Prediction using ERA5.pdf"
+          },
+          "vector": 
