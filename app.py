@@ -1038,8 +1038,9 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #666; margin-top: 2rem;">
-        <p>🔍 Deep Researcher Agent - Powered by Local AI</p>
+        <p>Deep Researcher Agent - Powered by Local AI</p>
         <p>All processing happens locally - your data never leaves your machine</p>
+        <p>Designed and Developed By Aman Goel</p>
     </div>
     """, unsafe_allow_html=True)
 
