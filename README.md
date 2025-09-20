@@ -3,8 +3,8 @@
 A comprehensive, Python-based deep researcher agent that can search, analyze, and synthesize information from large-scale data sources without relying on external web search APIs. The system handles local embedding generation, intelligent reasoning, and provides advanced features for research automation.
 
 ## Working Link
-Demo video and Explaination : https://youtu.be/9EykW6EdIfk
-Website Link : https://wolfie8935-researcher.streamlit.app/
+- Demo video and Explaination : https://youtu.be/9EykW6EdIfk
+- Website Link : https://wolfie8935-researcher.streamlit.app/
 
 ## ✨ Features
 
