@@ -1,0 +1,52 @@
+{
+  "metadata": {
+    "query": "What are the main sections and chapters?",
+    "export_date": "2025-09-21T01:01:42.953695",
+    "total_subtasks": 2,
+    "total_evidence": 5,
+    "average_confidence": 0.32999999999999996
+  },
+  "final_answer": "🔍 DEEP RESEARCH RESULTS\n============================================================\nQuery: What are the main sections and chapters?\nAnalysis Date: 2025-09-21 01:01:42\n\n📋 EXECUTIVE SUMMARY\n------------------------------\nThe research provides limited evidence, with the following tentative findings:\nDETAILED ANALYSIS\n==================================================\n\n1. What are the main sections\n----------------------------------------\nConfidence: 🟡 0.66\n\nAnswer:\nMH methods generate candidate samples in an adaptive way. These are correlated\nand may require long time to explore the posterior domain. Rejection sampling\ndraws i.i.d. samples from posterior which is inefficient.\n\nSources (5):\n  [1] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [2] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [3] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [4] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n  [5] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.15\n\n2. chapters?\n----------------------------------------\nConfidence: 🔴 0.00\n\nAnswer:\nNo relevant evidence found for this subtask.\n\nCONFIDENCE ASSESSMENT\n==================================================\nOverall Confidence: Very Low (0.33)\nAssessment: Insufficient evidence for reliable conclusions\n\nEvidence Quality:\n  • Total evidence pieces: 5\n  • Source diversity: 2 unique sources\n  • Subtasks completed: 2\n\nSOURCE VERIFICATION\n==================================================\nSources analyzed: 2\n\n============================================================\nResearch completed by Deep Researcher Agent\nAll sources are from local document collection",
+  "results": [
+    {
+      "subtask": "What are the main sections",
+      "answer": "MH methods generate candidate samples in an adaptive way. These are correlated and may require long time to explore the posterior domain. Rejection sampling draws i.i.d. samples from posterior which is inefficient.",
+      "evidence": [
+        {
+          "id": "bayesian presentation iisc.pdf_chunk3",
+          "text": "distrib ution 𝑃(𝜃|𝐷) over all the \nparameters . We assume the input as a training set 𝐷={(𝑥𝑛 ,𝑡𝑛)𝑛=1𝑁} where t is the labels and x are \nthe fixed constants. The target is the model parameter vector θ. 𝑃(𝜃|𝐷)=𝑃(𝐷|𝜃)𝑃(𝜃)\n𝑃(𝐷) \n𝑃(𝐷): Marginal Likelihood (normalizing agent and ensures  that all the probabilities add up to 1)  \n𝑃(𝐷|𝜃): Likelihood of observed data  \n𝑃(𝜃): Prior distribution  \nThe joint distribution  of the input and output would be:  𝑝(𝜃,𝐷)=𝑃(𝜃)∗𝑃(𝐷|𝜃)  \nUsing the assumption  that the labels t is conditionally independent given the covariates  X = x and the \nmodel parameter vector θ we can write the likelihood as  \n𝑃(𝐷|𝜃)=𝑃(𝑡𝐷|𝑥𝐷,𝜃)=∏𝑃(𝑡𝑛|𝑥𝑛,𝜃)𝑁\n𝑛=1 \nOur main goal can be formulated as the minimization of free energy . Minimization of free energy  \nThe goal of Bayesian learning is to find the best distribution of 𝑞(𝜃|𝐷) over the model performance. This can be done  by minimizing the free energy.",
+          "meta": {
+            "source": "bayesian presentation iisc.pdf",
+            "chunk_index": 3,
+            "total_chunks": 60,
+            "file_metadata": {
+              "file_size": 2361334,
+              "file_size_formatted": "2.3MB",
+              "modified_time": 1758388043.34277,
+              "file_hash": "331169b24fead2836cd858983c3a66ce",
+              "file_extension": ".pdf",
+              "title": "",
+              "author": "Aman Goel",
+              "subject": "",
+              "creator": "Microsoft® Word 2021",
+              "producer": "Microsoft® Word 2021",
+              "creation_date": "D:20250701014308+05'30'",
+              "modification_date": "D:20250701014308+05'30'",
+              "page_count": 26
+            },
+            "keywords": [
+              "model",
+              "likelihood",
+              "distribution",
+              "free",
+              "energy",
+              "over",
+              "input",
+              "labels",
+              "parameter",
+              "vector"
+            ],
+            "chunk_length": 918,
+            "file_path": "data\\bayesian presentation iisc.pdf"
+          },
+          "vector": 

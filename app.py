@@ -174,6 +174,30 @@ def display_system_status():
         status = "🟢 Ready" if components else "🔴 Not Ready"
         st.metric("Status", status)
 
+def get_current_config():
+    """Get current configuration from session state or return defaults."""
+    config = load_system_config()
+    
+    # Return current config from session state if available, otherwise defaults
+    return {
+        'reasoning': {
+            'decomposition_strategy': st.session_state.get('decomposition_strategy', 'intelligent'),
+            'max_subtasks': st.session_state.get('max_subtasks', config.get('reasoning', {}).get('max_subtasks', 5)),
+            'top_k': st.session_state.get('top_k', config.get('reasoning', {}).get('top_k', 5))
+        },
+        'export': {
+            'formats': st.session_state.get('export_formats', config.get('export', {}).get('formats', ['markdown'])),
+            'include_citations': st.session_state.get('include_citations', config.get('export', {}).get('include_citations', True))
+        },
+        'synthesizer': {
+            'enable_contradiction_detection': st.session_state.get('enable_contradiction_detection', config.get('synthesizer', {}).get('enable_contradiction_detection', True)),
+            'confidence_scoring': st.session_state.get('enable_confidence_scoring', config.get('synthesizer', {}).get('confidence_scoring', True))
+        },
+        'advanced': {
+            'enable_hybrid_search': st.session_state.get('enable_hybrid_search', config.get('advanced', {}).get('enable_hybrid_search', True))
+        }
+    }
+
 def sidebar_configuration():
     """Display configuration options in sidebar."""
     st.sidebar.header("⚙️ Configuration")
@@ -187,7 +211,8 @@ def sidebar_configuration():
         "Query Decomposition",
         ["simple", "intelligent", "llm_based"],
         index=1,
-        help="How to break down complex queries"
+        help="How to break down complex queries",
+        key="decomposition_strategy"
     )
     
     max_subtasks = st.sidebar.slider(
@@ -195,7 +220,8 @@ def sidebar_configuration():
         min_value=1,
         max_value=10,
         value=config.get('reasoning', {}).get('max_subtasks', 5),
-        help="Maximum number of subtasks to create"
+        help="Maximum number of subtasks to create",
+        key="max_subtasks"
     )
     
     top_k = st.sidebar.slider(
@@ -203,7 +229,8 @@ def sidebar_configuration():
         min_value=1,
         max_value=20,
         value=config.get('reasoning', {}).get('top_k', 5),
-        help="Number of evidence pieces per subtask"
+        help="Number of evidence pieces per subtask",
+        key="top_k"
     )
     
     # Export settings
@@ -213,30 +240,35 @@ def sidebar_configuration():
         "Export Formats",
         ["markdown", "pdf", "json", "html"],
         default=config.get('export', {}).get('formats', ['markdown']),
-        help="Formats to export results in"
+        help="Formats to export results in",
+        key="export_formats"
     )
     
     include_citations = st.sidebar.checkbox(
         "Include Citations",
         value=config.get('export', {}).get('include_citations', True),
-        help="Include source citations in exports"
+        help="Include source citations in exports",
+        key="include_citations"
     )
     
     # Advanced settings
     with st.sidebar.expander("🔧 Advanced Settings"):
         enable_contradiction_detection = st.checkbox(
             "Contradiction Detection",
-            value=config.get('synthesizer', {}).get('enable_contradiction_detection', True)
+            value=config.get('synthesizer', {}).get('enable_contradiction_detection', True),
+            key="enable_contradiction_detection"
         )
         
         enable_confidence_scoring = st.checkbox(
             "Confidence Scoring",
-            value=config.get('synthesizer', {}).get('confidence_scoring', True)
+            value=config.get('synthesizer', {}).get('confidence_scoring', True),
+            key="enable_confidence_scoring"
         )
         
         enable_hybrid_search = st.checkbox(
             "Hybrid Search",
-            value=config.get('advanced', {}).get('enable_hybrid_search', True)
+            value=config.get('advanced', {}).get('enable_hybrid_search', True),
+            key="enable_hybrid_search"
         )
     
     # Return updated config
@@ -274,7 +306,7 @@ def file_upload_section():
         )
     
     with col2:
-        if st.button("🗑️ Clear All Documents"):
+        if st.button("🗑️ Clear All Documents", key="clear_documents_btn"):
             data_dir = Path("data")
             if data_dir.exists():
                 for file in data_dir.glob("*"):
@@ -324,45 +356,43 @@ def file_upload_section():
 
 def research_interface():
     """Main research interface."""
+    st.markdown("---")
     st.subheader("🔍 Research Interface")
     
-    # Query input
+    # Query input with better styling
+    st.markdown("#### 💭 Enter Your Research Question")
     query = st.text_area(
         "Research Query",
         placeholder="Enter your research question here...\n\nExample: What are the main findings about climate change and its impacts?",
-        height=100,
-        help="Enter a detailed research question. The system will break it down into subtasks and analyze your documents."
+        height=120,
+        help="Enter a detailed research question. The system will break it down into subtasks and analyze your documents.",
+        key="main_research_query"
     )
     
     col1, col2, col3 = st.columns([2, 1, 1])
     
     with col1:
-        run_research = st.button("🚀 Run Research", type="primary", use_container_width=True)
+        run_research = st.button("🚀 Run Research", type="primary", use_container_width=True, key="run_research_btn")
     
     with col2:
-        if st.button("💡 Example Queries", use_container_width=True):
+        if st.button("💡 Example Queries", use_container_width=True, key="example_queries_btn"):
             st.session_state.show_examples = True
     
     # Handle example queries display
     if st.session_state.get('show_examples', False):
-        example_queries = [
-            "What are the key findings and conclusions?",
-            "Compare and contrast different approaches mentioned",
-            "What are the main challenges and limitations?",
-            "Summarize the methodology and results",
-            "What are the implications for future research?"
-        ]
-        selected_example = st.selectbox("Select example:", example_queries)
-        if st.button("Use Selected Example"):
+        # Generate document-specific example queries
+        example_queries = generate_document_specific_examples()
+        selected_example = st.selectbox("Select example:", example_queries, key="example_selectbox")
+        if st.button("Use Selected Example", key="use_example_btn"):
             st.session_state.example_query = selected_example
             st.session_state.show_examples = False
             st.rerun()
-        if st.button("Cancel"):
+        if st.button("Cancel", key="cancel_example_btn"):
             st.session_state.show_examples = False
             st.rerun()
     
     with col3:
-        if st.button("🔄 Clear Results", use_container_width=True):
+        if st.button("🔄 Clear Results", use_container_width=True, key="clear_results_btn"):
             if st.session_state.get('research_results'):
                 del st.session_state.research_results
             st.rerun()
@@ -610,47 +640,318 @@ def display_results(results_data: Dict[str, Any]):
         if export_path:
             st.info(f"📁 Export saved to: {export_path}")
 
+def generate_document_specific_examples() -> List[str]:
+    """Generate document-specific example queries based on uploaded files."""
+    try:
+        data_dir = Path("data")
+        if not data_dir.exists():
+            return [
+                "What are the key findings and conclusions?",
+                "Compare and contrast different approaches mentioned",
+                "What are the main challenges and limitations?",
+                "Summarize the methodology and results",
+                "What are the implications for future research?"
+            ]
+        
+        files = list(data_dir.glob("*"))
+        if not files:
+            return [
+                "What are the key findings and conclusions?",
+                "Compare and contrast different approaches mentioned",
+                "What are the main challenges and limitations?",
+                "Summarize the methodology and results",
+                "What are the implications for future research?"
+            ]
+        
+        # Analyze document types and generate relevant examples
+        doc_types = {}
+        total_files = len(files)
+        
+        for file_path in files:
+            if file_path.is_file():
+                ext = file_path.suffix.lower()
+                if ext in ['.pdf', '.docx', '.txt', '.md', '.html']:
+                    doc_types[ext] = doc_types.get(ext, 0) + 1
+        
+        examples = []
+        
+        # Document type specific examples
+        if '.pdf' in doc_types:
+            examples.extend([
+                "What are the main sections and key findings?",
+                "Summarize the abstract and conclusions",
+                "What methodology is used in this research?"
+            ])
+        
+        if '.docx' in doc_types:
+            examples.extend([
+                "What are the key headings and main points?",
+                "Extract the main arguments and evidence",
+                "What are the recommendations provided?"
+            ])
+        
+        # Multiple document examples
+        if total_files > 1:
+            examples.extend([
+                "What are the common themes across all documents?",
+                "How do these documents relate to each other?",
+                "Compare the different perspectives presented"
+            ])
+        
+        # General document analysis examples
+        examples.extend([
+            "What are the key takeaways and main points?",
+            "What questions does this document raise?",
+            "What are the practical implications?",
+            "What future research directions are suggested?"
+        ])
+        
+        # Remove duplicates and limit to 6 examples
+        unique_examples = list(dict.fromkeys(examples))[:6]
+        
+        return unique_examples
+        
+    except Exception as e:
+        st.error(f"Error generating example queries: {e}")
+        return [
+            "What are the key findings and conclusions?",
+            "Compare and contrast different approaches mentioned",
+            "What are the main challenges and limitations?",
+            "Summarize the methodology and results",
+            "What are the implications for future research?"
+        ]
+
+def generate_document_specific_followups(results: Dict[str, Any]) -> List[str]:
+    """Generate document-specific follow-up questions based on content analysis."""
+    follow_ups = []
+    
+    if not results or not results.get('subtasks'):
+        return follow_ups
+    
+    # Extract key information from results
+    final_answer = results.get('final_answer', '')
+    subtasks = results.get('subtasks', [])
+    evidence = results.get('evidence', [])
+    
+    # Analyze document content for intelligent follow-ups
+    content_indicators = {
+        'methodology': ['method', 'approach', 'technique', 'algorithm', 'model', 'framework'],
+        'results': ['result', 'finding', 'outcome', 'conclusion', 'performance', 'accuracy'],
+        'limitations': ['limitation', 'constraint', 'challenge', 'issue', 'problem', 'weakness'],
+        'applications': ['application', 'use case', 'implementation', 'deployment', 'practical'],
+        'comparison': ['compare', 'versus', 'vs', 'different', 'alternative', 'baseline'],
+        'future_work': ['future', 'next step', 'improvement', 'enhancement', 'extension']
+    }
+    
+    # Check what types of content are present
+    content_types = []
+    text_to_analyze = final_answer.lower()
+    
+    for content_type, keywords in content_indicators.items():
+        if any(keyword in text_to_analyze for keyword in keywords):
+            content_types.append(content_type)
+    
+    # Generate specific follow-ups based on content
+    if 'methodology' in content_types:
+        follow_ups.extend([
+            "Can you explain the methodology in more detail?",
+            "What are the key steps in the proposed approach?",
+            "How does this method compare to existing techniques?"
+        ])
+    
+    if 'results' in content_types:
+        follow_ups.extend([
+            "What are the quantitative results and metrics?",
+            "How significant are these findings?",
+            "What do the results tell us about the problem?"
+        ])
+    
+    if 'limitations' in content_types:
+        follow_ups.extend([
+            "What are the main limitations and constraints?",
+            "How do these limitations affect the conclusions?",
+            "What could be done to address these limitations?"
+        ])
+    
+    if 'applications' in content_types:
+        follow_ups.extend([
+            "What are the practical applications of this work?",
+            "How can this be implemented in real-world scenarios?",
+            "What are the potential use cases?"
+        ])
+    
+    if 'comparison' in content_types:
+        follow_ups.extend([
+            "How does this compare to other approaches?",
+            "What are the advantages and disadvantages?",
+            "Which method performs better and why?"
+        ])
+    
+    if 'future_work' in content_types:
+        follow_ups.extend([
+            "What future research directions are suggested?",
+            "What improvements could be made?",
+            "What are the next steps for this research?"
+        ])
+    
+    # Add general document analysis questions
+    follow_ups.extend([
+        "What are the key takeaways from this document?",
+        "What questions does this document raise?",
+        "How does this relate to current trends in the field?",
+        "What are the most important points to remember?"
+    ])
+    
+    # Remove duplicates and limit to 6 questions
+    unique_follow_ups = list(dict.fromkeys(follow_ups))[:6]
+    
+    return unique_follow_ups
+
+def generate_document_structure_followups() -> List[str]:
+    """Generate follow-ups based on document structure and content."""
+    try:
+        components = initialize_components()
+        loader = components.get('loader')
+        
+        if not loader:
+            return []
+        
+        # Get document statistics
+        data_dir = Path("data")
+        if not data_dir.exists():
+            return []
+        
+        files = list(data_dir.glob("*"))
+        if not files:
+            return []
+        
+        # Analyze document types and generate relevant questions
+        doc_types = {}
+        total_pages = 0
+        
+        for file_path in files:
+            if file_path.is_file():
+                ext = file_path.suffix.lower()
+                if ext in ['.pdf', '.docx', '.txt', '.md', '.html']:
+                    doc_types[ext] = doc_types.get(ext, 0) + 1
+                    # Estimate pages for PDFs
+                    if ext == '.pdf':
+                        try:
+                            import PyPDF2
+                            with open(file_path, 'rb') as f:
+                                pdf_reader = PyPDF2.PdfReader(f)
+                                total_pages += len(pdf_reader.pages)
+                        except:
+                            pass
+        
+        structure_followups = []
+        
+        # Document type specific questions
+        if '.pdf' in doc_types:
+            structure_followups.extend([
+                "What are the main sections and chapters?",
+                "Can you summarize each section?",
+                "What figures and tables are included?"
+            ])
+        
+        if '.docx' in doc_types:
+            structure_followups.extend([
+                "What are the key headings and structure?",
+                "Can you extract the main points from each section?"
+            ])
+        
+        if total_pages > 10:
+            structure_followups.extend([
+                "This is a long document - can you break it down by sections?",
+                "What are the most important pages or sections?"
+            ])
+        
+        # Multiple document questions
+        if len(files) > 1:
+            structure_followups.extend([
+                "How do these documents relate to each other?",
+                "What are the common themes across all documents?",
+                "Can you compare the different documents?"
+            ])
+        
+        return structure_followups[:4]  # Limit to 4 structure questions
+        
+    except Exception as e:
+        st.error(f"Error generating structure follow-ups: {e}")
+        return []
+
 def follow_up_questions(results_data: Dict[str, Any]):
-    """Generate and display follow-up questions."""
+    """Generate and display intelligent follow-up questions."""
     if not results_data:
         return
     
-    st.subheader("💡 Follow-up Questions")
+    st.markdown("---")
+    st.markdown("### 🤔 Intelligent Follow-up Questions")
+    st.markdown("Continue your research with these contextually relevant questions:")
     
-    # Generate follow-up questions based on results
-    follow_ups = [
-        "Can you provide more details about the methodology?",
-        "What are the limitations mentioned in the research?",
-        "Are there any conflicting findings?",
-        "What are the practical implications?",
-        "What future research directions are suggested?"
-    ]
+    # Generate document-specific follow-ups
+    content_followups = generate_document_specific_followups(results_data)
+    structure_followups = generate_document_structure_followups()
     
-    col1, col2, col3 = st.columns(3)
+    # Combine and deduplicate
+    all_followups = content_followups + structure_followups
+    unique_followups = list(dict.fromkeys(all_followups))[:8]  # Limit to 8 questions
     
-    for i, question in enumerate(follow_ups):
-        with [col1, col2, col3][i % 3]:
-            if st.button(f"❓ {question[:50]}...", use_container_width=True):
+    # If no intelligent follow-ups, use fallback
+    if not unique_followups:
+        unique_followups = [
+            "What are the main limitations mentioned?",
+            "How do the results compare to previous studies?",
+            "What are the practical applications?",
+            "What future research directions are suggested?"
+        ]
+    
+    # Display follow-ups in a grid with better styling
+    st.markdown("#### 💡 Suggested Questions")
+    cols = st.columns(2)
+    
+    for i, question in enumerate(unique_followups):
+        col_idx = i % 2
+        with cols[col_idx]:
+            # Create a more attractive button with better styling
+            button_text = f"❓ {question[:55]}{'...' if len(question) > 55 else ''}"
+            if st.button(button_text, use_container_width=True, key=f"followup_{i}"):
                 st.session_state.follow_up_query = question
+                st.rerun()
     
     # Handle follow-up query
     follow_up_query = st.session_state.get('follow_up_query')
     if follow_up_query:
-        st.info(f"Follow-up query: {follow_up_query}")
+        st.markdown("---")
+        st.markdown("#### 🎯 Selected Follow-up Question")
+        st.info(f"**Query:** {follow_up_query}")
+        
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("🚀 Research Follow-up", use_container_width=True):
-                # Process follow-up query
-                config_updates = sidebar_configuration()
-                follow_up_results = process_research(follow_up_query, config_updates)
-                if follow_up_results:
-                    st.session_state.research_results = follow_up_results
-                del st.session_state.follow_up_query
+            if st.button("🚀 Research Follow-up", use_container_width=True, key="research_followup_btn", type="primary"):
+                # Set flag to process follow-up
+                st.session_state.process_followup = True
+                st.session_state.followup_query_to_process = follow_up_query
                 st.rerun()
         with col2:
-            if st.button("❌ Cancel Follow-up", use_container_width=True):
+            if st.button("❌ Cancel Follow-up", use_container_width=True, key="cancel_followup_btn"):
                 del st.session_state.follow_up_query
                 st.rerun()
+    
+    # Add custom follow-up option
+    st.markdown("---")
+    st.markdown("#### 💬 Custom Question")
+    st.markdown("**Or ask your own specific question:**")
+    
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        custom_query = st.text_input("Custom follow-up question:", placeholder="Enter your specific question...", key="custom_query_input")
+    with col2:
+        if st.button("🚀 Ask Question", use_container_width=True, key="ask_custom_btn", type="primary") and custom_query:
+            # Set flag to process custom question
+            st.session_state.process_custom = True
+            st.session_state.custom_query_to_process = custom_query
+            st.rerun()
 
 def main():
     """Main application function."""
@@ -674,14 +975,62 @@ def main():
             st.error(f"Invalid query: {error_msg}")
             return
         
-        # Process research
-        results_data = process_research(query, config_updates)
-        if results_data:
-            st.session_state.research_results = results_data
+        # Process research with visual feedback
+        with st.spinner("🔍 Processing your research query..."):
+            results_data = process_research(query, config_updates)
+            if results_data:
+                st.session_state.research_results = results_data
+                st.success("✅ Research completed successfully!")
+            else:
+                st.error("❌ Failed to process research query")
+    
+    # Process follow-up research if requested
+    if st.session_state.get('process_followup', False):
+        followup_query = st.session_state.get('followup_query_to_process')
+        if followup_query:
+            with st.spinner("🔍 Processing follow-up research..."):
+                config_updates = get_current_config()
+                follow_up_results = process_research(followup_query, config_updates)
+                if follow_up_results:
+                    st.session_state.research_results = follow_up_results
+                    st.success("✅ Follow-up research completed!")
+                else:
+                    st.error("❌ Failed to process follow-up research")
+        
+        # Clear flags
+        del st.session_state.process_followup
+        if 'followup_query_to_process' in st.session_state:
+            del st.session_state.followup_query_to_process
+        if 'follow_up_query' in st.session_state:
+            del st.session_state.follow_up_query
+    
+    # Process custom question if requested
+    if st.session_state.get('process_custom', False):
+        custom_query = st.session_state.get('custom_query_to_process')
+        if custom_query:
+            with st.spinner("🔍 Processing custom question..."):
+                config_updates = get_current_config()
+                custom_results = process_research(custom_query, config_updates)
+                if custom_results:
+                    st.session_state.research_results = custom_results
+                    st.success("✅ Custom question research completed!")
+                else:
+                    st.error("❌ Failed to process custom question")
+        
+        # Clear flags
+        del st.session_state.process_custom
+        if 'custom_query_to_process' in st.session_state:
+            del st.session_state.custom_query_to_process
     
     # Display results if available
     research_results = st.session_state.get('research_results')
     if research_results:
+        st.markdown("---")
+        st.markdown("## 📊 Research Results")
+        
+        # Add a success banner
+        st.success("🎉 Research completed! Explore your results below.")
+        
         display_results(research_results)
         follow_up_questions(research_results)
     

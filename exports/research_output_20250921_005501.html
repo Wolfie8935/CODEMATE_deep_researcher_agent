@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #333; border-bottom: 2px solid #333; }
+        h2 { color: #666; margin-top: 30px; }
+        h3 { color: #888; }
+        .confidence { font-weight: bold; }
+        .confidence.high { color: green; }
+        .confidence.medium { color: orange; }
+        .confidence.low { color: red; }
+        .evidence { background-color: #f5f5f5; padding: 10px; margin: 10px 0; border-left: 4px solid #007acc; }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p><strong>Query:</strong> what is sgld?</p>
+    <p><strong>Generated:</strong> 2025-09-21 00:55:01</p>
+    
+    <h2>Executive Summary</h2>
+    <div>🔍 DEEP RESEARCH RESULTS<br>============================================================<br>Query: what is sgld?<br>Analysis Date: 2025-09-21 00:55:01<br><br>📋 EXECUTIVE SUMMARY<br>------------------------------<br>The research reveals several findings with moderate confidence:<br>DETAILED ANALYSIS<br>==================================================<br><br>1. what is sgld?<br>----------------------------------------<br>Confidence: 🟡 0.66<br><br>Answer:<br>Exact Bayesian Learning is possible on a limited set of models as we need to<br>know the prior                 of the model parameters which is not feasible.<br>When x and t are independent, it means that the likelihood function does not<br>depend on the covariates.<br><br>Sources (5):<br>  [1] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [2] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [3] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [4] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [5] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br><br>CONFIDENCE ASSESSMENT<br>==================================================<br>Overall Confidence: Moderate (0.66)<br>Assessment: Good evidence with some limitations<br><br>Evidence Quality:<br>  • Total evidence pieces: 5<br>  • Source diversity: 2 unique sources<br>  • Subtasks completed: 1<br><br>SOURCE VERIFICATION<br>==================================================<br>Sources analyzed: 2<br><br>============================================================<br>Research completed by Deep Researcher Agent<br>All sources are from local document collection</div>
+    
+    <h2>Detailed Analysis</h2>
+
+    <h3>1. what is sgld?</h3>
+    <p><strong>Answer:</strong> Exact Bayesian Learning is possible on a limited set of models as we need to know the prior                 of the model parameters which is not feasible. When x and t are independent, it means that the likelihood function does not depend on the covariates.</p>
+    <p><strong>Confidence:</strong> <span class="confidence medium">0.66</span></p>
+<h4>Evidence:</h4>
+    <div class="evidence">
+        <strong>1. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        ion that the posterior is the Gaussian Distribution 
+𝑝(θ∣𝐷)=𝒩(θ∣∣ν,σ2𝐼) for some mean 𝜈 and variance 𝜎2. Logistic regression sets the likelihood 
+as p(t=1∣x,θ)=σ(θ⊤u(x)) for a feature of vectors u(x). For this model , what shall be the 
+ensemble predictive distribution  
+𝑝(𝑡∣𝑥,𝐷)=𝐸θ∼ℕ(θ∣∣∣ν,σ𝟚𝐼)[σ(θ...
+    </div>
+
+    <div class="evidence">
+        <strong>2. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        gets t 
+directly, rather than modelling the conditional distribution given inputs x. This setup is most common 
+in density estimation problems such as:  
+- Estimating a distribution from samples (e.g. Estimating a gaussian distribution from data)  
+- Learning a generative model for the data  
+Basica...
+    </div>
+
+    <div class="evidence">
+        <strong>3. NPTEL Summer Internship Report.pdf</strong> (relevance: 0.150)<br>
+        𝐹(𝑞)=−𝐸𝑞[log𝑝(𝐷|𝜃)]+𝐾𝐿(𝑞(𝜃)∥𝑝(𝜃)) 
+ 
+Minimize $F(q)$ ⇔ Maximize ELBO(q) : 
+ 
+𝐹(𝑞(𝜃|𝐷))=−𝐸𝑞[log𝑝(𝐷|𝜃)]+𝐾𝐿(𝑞(𝜃|𝐷)∥𝑝(𝜃)) 
+−𝐸𝑞[log𝑝(𝐷|𝜃)]=∑𝐸𝑞[log𝑝(𝑦𝑛|𝑥𝑛,𝜃)]𝑁
+𝑛=1=𝑁⋅𝐸[𝐿𝐷(𝜃)] 
+ 
+Average –ve log likelihood. Multiply by N or not to enforce. We measure per sample 
+performance to make it dataset irrelevant. K...
+    </div>
+
+    <div class="evidence">
+        <strong>4. NPTEL Summer Internship Report.pdf</strong> (relevance: 0.150)<br>
+        Exact Bayesian Learning is possible on a limited set of models as we need to know the prior 
+of the model parameters which is not feasible. Now we will talk about the scenarios where it 
+is feasi ble. 3.1 Conjugate Priors  
+ 
+3.2 When x and t are Independent – SPECIAL CASE  
+When x and t are indepen...
+    </div>
+
+    <div class="evidence">
+        <strong>5. NPTEL Summer Internship Report.pdf</strong> (relevance: 0.150)<br>
+        n distribution from 
+data)  
+- Learning a generative model for the data  
+Basically, what happens since x doesn’t influence the likelihood, the learning problem becomes 
+independent of the covariates. We only update the beliefs about 𝜃 based on observed data t, 
+without needing to condition on x. In...
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Report</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 40px; }
+        h1 { color: #333; border-bottom: 2px solid #333; }
+        h2 { color: #666; margin-top: 30px; }
+        h3 { color: #888; }
+        .confidence { font-weight: bold; }
+        .confidence.high { color: green; }
+        .confidence.medium { color: orange; }
+        .confidence.low { color: red; }
+        .evidence { background-color: #f5f5f5; padding: 10px; margin: 10px 0; border-left: 4px solid #007acc; }
+    </style>
+</head>
+<body>
+    <h1>Research Report</h1>
+    <p><strong>Query:</strong> What are the main sections and chapters?</p>
+    <p><strong>Generated:</strong> 2025-09-21 01:01:42</p>
+    
+    <h2>Executive Summary</h2>
+    <div>🔍 DEEP RESEARCH RESULTS<br>============================================================<br>Query: What are the main sections and chapters?<br>Analysis Date: 2025-09-21 01:01:42<br><br>📋 EXECUTIVE SUMMARY<br>------------------------------<br>The research provides limited evidence, with the following tentative findings:<br>DETAILED ANALYSIS<br>==================================================<br><br>1. What are the main sections<br>----------------------------------------<br>Confidence: 🟡 0.66<br><br>Answer:<br>MH methods generate candidate samples in an adaptive way. These are correlated<br>and may require long time to explore the posterior domain. Rejection sampling<br>draws i.i.d. samples from posterior which is inefficient.<br><br>Sources (5):<br>  [1] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [2] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [3] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [4] bayesian presentation iisc.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br>  [5] NPTEL Summer Internship Report.pdf (n.d.). Retrieved from local database. Relevance score: 0.15<br><br>2. chapters?<br>----------------------------------------<br>Confidence: 🔴 0.00<br><br>Answer:<br>No relevant evidence found for this subtask.<br><br>CONFIDENCE ASSESSMENT<br>==================================================<br>Overall Confidence: Very Low (0.33)<br>Assessment: Insufficient evidence for reliable conclusions<br><br>Evidence Quality:<br>  • Total evidence pieces: 5<br>  • Source diversity: 2 unique sources<br>  • Subtasks completed: 2<br><br>SOURCE VERIFICATION<br>==================================================<br>Sources analyzed: 2<br><br>============================================================<br>Research completed by Deep Researcher Agent<br>All sources are from local document collection</div>
+    
+    <h2>Detailed Analysis</h2>
+
+    <h3>1. What are the main sections</h3>
+    <p><strong>Answer:</strong> MH methods generate candidate samples in an adaptive way. These are correlated and may require long time to explore the posterior domain. Rejection sampling draws i.i.d. samples from posterior which is inefficient.</p>
+    <p><strong>Confidence:</strong> <span class="confidence medium">0.66</span></p>
+<h4>Evidence:</h4>
+    <div class="evidence">
+        <strong>1. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        distrib ution 𝑃(𝜃|𝐷) over all the 
+parameters . We assume the input as a training set 𝐷={(𝑥𝑛 ,𝑡𝑛)𝑛=1𝑁} where t is the labels and x are 
+the fixed constants. The target is the model parameter vector θ. 𝑃(𝜃|𝐷)=𝑃(𝐷|𝜃)𝑃(𝜃)
+𝑃(𝐷) 
+𝑃(𝐷): Marginal Likelihood (normalizing agent and ensures  that all the prob...
+    </div>
+
+    <div class="evidence">
+        <strong>2. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        at the 
+accepted samples follow the posterior distribution. Generate samples θ1…….θ𝑠 ~ 𝑝(θ|𝐷) using accept/ reject logic  
+𝑝(θ|acc)=𝑝(θ)𝑝(acc|θ)
+𝑝(acc) 
+𝑝(acc)=∫𝑝(θ′)𝑝(acc|θ′)ⅆθ′ 
+Here θ1′……θ𝑠′ i.i.d. from prior 𝑝(θ) [known]  
+𝑝(acc|𝜃′): acceptance probability  
+Our main goal is to satisfy  
+𝑝(θ|acc...
+    </div>
+
+    <div class="evidence">
+        <strong>3. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        Concretely, 
+starting from a current sample, MH draws a candidate and then computes an acceptance probability 
+(typically 𝑚𝑖𝑛 (1,𝑡𝑎𝑟𝑔𝑒𝑡(𝑐𝑎𝑛ⅆ𝑖ⅆ𝑎𝑡𝑒 )/𝑡𝑎𝑟𝑔𝑒𝑡(𝑐𝑢𝑟𝑟𝑒𝑛𝑡)), adjusting for proposal asymmetry). If 
+accepted, the chain moves to the candidate; if rejected, it stays at the current point. Over ma...
+    </div>
+
+    <div class="evidence">
+        <strong>4. bayesian presentation iisc.pdf</strong> (relevance: 0.150)<br>
+        ate samples in an adaptive way with the next sample θ𝑠+1 being 
+in the neighbourhood of last accepted sample θ𝑠. These are correlated and may require long time to 
+explore the entire posterior domain. It uses transition distribution 𝑝(θ′|θ) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Posterior ratio:  
+𝑝(θ′|𝐷)
+𝑝(θ|𝐷)=𝑝(θ′)𝑝(𝐷|θ...
+    </div>
+
+    <div class="evidence">
+        <strong>5. NPTEL Summer Internship Report.pdf</strong> (relevance: 0.150)<br>
+        r distribution 
+𝑃(𝜃|𝐷) over all the parameters. We assume the input as a training set 𝐷={(𝑥𝑛 ,𝑡𝑛)𝑛=1𝑁} where 
+t is the labels and x are the fixed constants. The target is the model parameter vector θ. 𝑃(𝜃|𝐷)=𝑃(𝐷|𝜃)𝑃(𝜃)
+𝑃(𝐷) 
+ 
+𝑃(𝐷): Marginal Likelihood (normalizing agent and ensures that all the pro...
+    </div>
+
+    <h3>2. chapters?</h3>
+    <p><strong>Answer:</strong> No relevant evidence found for this subtask.</p>
+    <p><strong>Confidence:</strong> <span class="confidence low">0.00</span></p>
+
+</body>
+</html>
