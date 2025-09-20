@@ -5,6 +5,7 @@ A comprehensive, Python-based deep researcher agent that can search, analyze, an
 ## Working Link
 - Demo video and Explaination : https://youtu.be/9EykW6EdIfk
 - Website Link : https://wolfie8935-researcher.streamlit.app/
+- LinkedIn Post: https://www.linkedin.com/posts/amangoel8935_deep-researcher-agent-codemateai-aman-goel-activity-7375287014532919296-Rm8X?utm_source=share&utm_medium=member_desktop&rcm=ACoAAExmjbcBpiQDxT86tG9x1kKpxhAb1T3Jteo
 
 ## ✨ Features
 
