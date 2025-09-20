@@ -31,7 +31,7 @@ A comprehensive, Python-based deep researcher agent that can search, analyze, an
 
 1. **Clone the repository**:
 ```bash
-git clone <repository-url>
+git clone https://github.com/Wolfie8935/Deep_researcher_agent
 cd codemate
 ```
 
