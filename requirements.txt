@@ -1,0 +1,15 @@
+langchain
+langchain-community
+faiss-cpu
+sentence-transformers
+torch
+transformers
+numpy
+pandas
+scikit-learn
+PyPDF2
+python-docx
+reportlab
+markdown
+streamlit
+tqdm
